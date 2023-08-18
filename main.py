@@ -1,3 +1,4 @@
+import json
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
@@ -31,6 +32,14 @@ def find_element_tag(single_element,name,tag):
         print("couldn't find a element with a tag. returning empty array")
         print("An error occurred at finding element with tags:", e)
         return []
+    
+def export_to_json(data, file_name):
+    try:
+        with open(file_name, 'w') as file:
+            json.dump(data, file, indent=4)
+        print(f"Data exported to '{file_name}' as JSON successfully.")
+    except Exception as e:
+        print("An error occurred while exporting:", e)
 
 # Set up Chrome options for headless mode
 chrome_options = Options()
@@ -61,15 +70,25 @@ single_element = soup.find(class_='css-1p2cbqg')
 
 games_name=[]
 games_date=[]
-image=[]
+images=[]
 
 games_name=find_element(single_element,'css-1h2ruwl')
 games_date=find_element(single_element,'css-nf3v9d')
-image=find_element_tag(single_element,'img','data-image')
+images=find_element_tag(single_element,'img','data-image')
 print(games_name)
 print(games_date)
-print(image)
+print(images)
 
 
 driver.quit()
+
+# Combine arrays into a dictionary
+combined_data = {
+    'games_name': games_name,
+    'games_date': games_date,
+    'image_urls': images
+}
+
+# Call the function to export the combined data as JSON
+export_to_json(combined_data, 'export/output.json')
 

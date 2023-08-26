@@ -53,10 +53,24 @@ def choose_save_location():
 
     return file_path
 def export_to_json(data, file_name):
+    root = tk.Tk()
+    root.withdraw()  # Hide the main window
+
+    file_path = filedialog.asksaveasfilename(
+        defaultextension=".json",
+        initialfile="export.json",  # Default name
+        filetypes=[("JSON files", "*.json")],
+        title="Save JSON As"
+    )
+
+    if not file_path:
+        print("Data file saving was cancelled.")
+        return
+
     try:
-        with open(file_name, 'w') as file:
+        with open(file_path, 'w') as file:
             json.dump(data, file, indent=4)
-        print(f"Data exported to '{file_name}' as JSON successfully.")
+        print(f"Data exported to '{file_path}' as JSON successfully.")
     except Exception as e:
         print("An error occurred while exporting:", e)
 
@@ -112,6 +126,7 @@ driver.quit()
 
 # Combine arrays into a dictionary
 combined_data = {
+    'links': full_links,
     'games_name': games_name,
     'games_date': games_date,
     'image_urls': images

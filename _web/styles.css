@@ -1,0 +1,144 @@
+/* styles.css */
+@font-face {
+    font-family: 'CustomFont';
+    src: url('Schluber.ttf') format('truetype');
+    /* Add more font formats as needed for cross-browser support */
+}
+
+body {
+    
+    font-family: 'CustomFont';
+    background-color: #202325;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+h1{
+    
+    color: #FFFFFF;
+
+}
+h2{
+    color: #FFFFFF;
+    font-size: 48px;
+    
+}
+h3{
+    color: #FFFFFF;
+    
+}
+p{
+    color: #FFFFFF;
+    font-size: xx-large;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: flex-start;
+    min-height: 100vh;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+    
+}
+
+.logo img{
+    width: 150px;
+    height: 150px;
+
+}
+.logo h2{
+    margin: auto 0 auto 25%;
+    white-space: nowrap;
+
+}
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.game-info {
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #181A1B;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    flex: 0 0 calc(20% - 20px);
+    /* Adjust the width calculation and margins as needed */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.game-info div{
+    height: 100%;
+
+    display: flex;
+  
+
+}
+
+.game-info .head p{
+    opacity: 100%;
+    font-size: xx-large;
+    margin: auto;
+    text-align: center;
+}
+
+.game-info p {
+    opacity: 30%;
+    margin: 5px 0;
+    min-width: 225px;
+    font-size: medium;
+}
+
+
+.images {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 175px; /* Set a minimum height for images */
+    overflow: hidden; /* Hide any overflow beyond the minimum height */
+    position: relative;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+.images img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain; /* Show full image within the specified height */
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.alert_p{
+    
+    background-color: rgb(95, 166, 247);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    
+}
+.images .alert_p{
+    height: auto
+}
+.alert_p p{
+    opacity: 100%;
+    font-size: large;
+}
+.coming_soon{
+    background-color: rgb(0, 0, 0);
+}
+
+
